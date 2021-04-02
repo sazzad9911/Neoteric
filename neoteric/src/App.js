@@ -10,7 +10,7 @@ function App() {
           <Header Name="Sayied Hasan" Img="https://i.ibb.co/Q6F00sw/afaga.png" Login="false"></Header>
         </div>
         <div className='body'>
-          
+            
         </div>
         <div className='foot'>
           <Footer></Footer>
