@@ -75,12 +75,19 @@
     align-items: center;
 }
 
+.views {
+    width: 160px;
+    overflow-wrap: break-word;
+    height: fit-content;
+}
+
 .search-box input {
     outline: none;
     border: 1px solid oldlace;
     border-radius: 3px;
     height: 20px;
     margin: 5px 5px;
+    width: 160px;
 }
 
 .search-box input:focus {

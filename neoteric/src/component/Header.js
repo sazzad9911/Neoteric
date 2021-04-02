@@ -8,6 +8,7 @@ import {CgProfile} from "react-icons/cg";
 import {BiCreditCard} from "react-icons/bi"
 import {IoMdCash} from 'react-icons/io';
 import{AiOutlineLogout} from 'react-icons/ai'
+import Menu from './menu'
 
 function Collection(props){
     if(props===1){
@@ -33,35 +34,22 @@ function Header(props) {
     }
     return ( 
         <div className="header">
-            <div className="header-box" onMouseOver={Collection.bind(this,0)}>
+            <div className="header-box" >
             <img src={logo} alt="logo"></img>
             </div>
             <div className="header-box1">
-                <div className="header-box2" onMouseOver={Collection.bind(this,0)}>
+                <div className="header-box2">
                     <h1>N</h1>
                     <h2>eoteric <b>BD</b></h2>
                     <p>Fashion Is Freedom</p>
                 </div>
-                <div className="header-box2" style={{height:"33%"}} id="menus">
-                    <h3 onMouseOver={Collection.bind(this,0)}>Home</h3>
-                    <h3 onMouseOver={Collection.bind(this,1)}>Collections</h3>
-                    <h3 onMouseOver={Collection.bind(this,0)}>Policies</h3>
-                    <h3 onMouseOver={Collection.bind(this,0)}>FAQ</h3>
-                    <Search onMouseOver={Collection.bind(this,0)}></Search>
+                <div className="header-box2" style={{height:"33%", alignItems: 'center'}} id="menus">
+                    <Menu></Menu>
+                    <Search></Search>
                 </div>
                 <div className="header-box3">
                 <FaBars className="menu-bar" onClick={Toggle.bind(this,"mobile-menu",1)}></FaBars>
                 </div>
-            </div>
-            <div className="sub-menu" id="x" onMouseOver={Collection.bind(this,1)}>
-            <ul>
-                    <li>T Shirt</li>
-                    <li>Polo</li>
-                    <li>TurtleNecks</li>
-                    <li>Hoodies</li>
-                    <li>Basicx Full</li>
-                    <li>Sleeves</li>
-                    </ul>
             </div>
             <div className="mobile-menu" id="mobile-menu">
                 <div className="mobile-menu1">
