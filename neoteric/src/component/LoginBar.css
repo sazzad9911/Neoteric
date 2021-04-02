@@ -1,9 +1,44 @@
 .loginbar {
-    padding-left: 50px;
+    padding-left: 10px;
     display: flex;
     align-items: center;
     height: fit-content;
     width: fit-content;
 }
 
-.loginbar img {}
+.loginbar img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    box-shadow: 1px 2px 2px rgb(224, 222, 222);
+    margin: 0px 4px;
+}
+
+.profile {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    color: whitesmoke;
+    margin-left: 10px;
+}
+
+.loginbar p {
+    font-weight: 400;
+    font-size: 17px;
+    margin: 0px 10px;
+}
+
+.profile p {
+    font-weight: 500;
+    margin-left: 5px;
+}
+
+.profile h4 {
+    margin: 12px 5px;
+    cursor: pointer;
+}
+
+.profile h4:hover {
+    color: tomato;
+}

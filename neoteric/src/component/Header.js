@@ -7,10 +7,8 @@ import { AiOutlineClose } from "react-icons/ai";
 import {CgProfile} from "react-icons/cg";
 import {BiCreditCard} from "react-icons/bi"
 import {IoMdCash} from 'react-icons/io';
-import{AiOutlineLogout} from 'react-icons/ai'
 import Menu from './menu'
 import LoginBar from './LoginBar';
-
 function Collection(props){
     if(props===1){
         document.getElementById('x').style.display='block';
@@ -47,7 +45,7 @@ function Header(props) {
                 <div className="header-box2" style={{height:"33%", alignItems: 'center'}} id="menus">
                     <Menu></Menu>
                     <Search></Search>
-                    <LoginBar></LoginBar>
+                    <LoginBar name='Sazzad Hossain' login='false'></LoginBar>
                 </div>
                 <div className="header-box3">
                 <FaBars className="menu-bar" onClick={Toggle.bind(this,"mobile-menu",1)}></FaBars>
@@ -91,10 +89,7 @@ function Header(props) {
                         <h4 style={{fontWeight: "400", margin: "5px 25px"}}>Sleeves</h4>
                         <h4>Policies</h4>
                         <h4 >FAQ</h4>
-                        <div className='profile'>
-                        <AiOutlineLogout style={{width: "30px", height:"30px",margin:"5px 5px"}}></AiOutlineLogout>
-                        <h4>{log}</h4>
-                        </div>
+                        <LoginBar name='Sazzad Hossain' display='flex' login='true'></LoginBar>
                     </div>
                 </div>
             </div>
