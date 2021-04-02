@@ -1,0 +1,13 @@
+.footer-box {
+    width: 100vw;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #1e1e1e;
+}
+
+.footer-box1 {
+    width: 400px;
+    height: fit-content;
+}
