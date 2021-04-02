@@ -1,0 +1,9 @@
+.loginbar {
+    padding-left: 50px;
+    display: flex;
+    align-items: center;
+    height: fit-content;
+    width: fit-content;
+}
+
+.loginbar img {}

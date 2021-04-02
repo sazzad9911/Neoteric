@@ -9,6 +9,7 @@ import {BiCreditCard} from "react-icons/bi"
 import {IoMdCash} from 'react-icons/io';
 import{AiOutlineLogout} from 'react-icons/ai'
 import Menu from './menu'
+import LoginBar from './LoginBar';
 
 function Collection(props){
     if(props===1){
@@ -46,11 +47,15 @@ function Header(props) {
                 <div className="header-box2" style={{height:"33%", alignItems: 'center'}} id="menus">
                     <Menu></Menu>
                     <Search></Search>
+                    <LoginBar></LoginBar>
                 </div>
                 <div className="header-box3">
                 <FaBars className="menu-bar" onClick={Toggle.bind(this,"mobile-menu",1)}></FaBars>
                 </div>
             </div>
+
+
+
             <div className="mobile-menu" id="mobile-menu">
                 <div className="mobile-menu1">
                 <AiOutlineClose className="menu-bar" style={{margin: "5px 5px"}} onClick={Toggle.bind(this,"mobile-menu",0)}></AiOutlineClose>

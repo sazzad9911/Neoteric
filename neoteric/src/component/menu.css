@@ -5,15 +5,18 @@
 .topnav a {
     float: left;
     display: block;
-    color: #f2f2f2;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
 }
 
+a {
+    color: white;
+}
+
 .active {
-    color: #a14fc2;
+    color: #b858dd;
 }
 
 .topnav .icon {
@@ -29,11 +32,11 @@
     font-size: 17px;
     border: none;
     outline: none;
-    color: white;
     padding: 14px 16px;
     background-color: inherit;
     font-family: inherit;
     margin: 0;
+    color: white;
 }
 
 .dropdown-content {
@@ -56,7 +59,7 @@
 
 .topnav a:hover,
 .dropdown:hover .dropbtn {
-    color: white;
+    color: rgb(165, 164, 164);
 }
 
 .dropdown-content a:hover {

@@ -1,7 +1,7 @@
 import React from 'react'
 import './menu.css'
 
-function Menu(){
+function Menu(props){
     function myFunction() {
         var x = document.getElementById("myTopnav");
         if (x.className === "topnav") {
@@ -10,10 +10,16 @@ function Menu(){
           x.className = "topnav";
         }
       }
-
+function x(){
+    var i;
+    for(i=0;i<3;i++){
+        
+    }
+    
+}
     return(
         <div className="topnav" id="myTopnav">
-  <a href="#home" className="active">Home</a>
+  <a href="#home" className="active" >Home</a>
   <div className="dropdown">
     <button className="dropbtn">Collections 
       
@@ -27,7 +33,7 @@ function Menu(){
     </div>
   </div> 
   <a href="#contact">Policies</a>
-  <a href="#about">FAQ</a>
+  <a href="#about" >FAQ</a>
   <a href="javascript:void(0);" className="icon" onClick={myFunction}>&#9776;</a>
 </div>
     )
