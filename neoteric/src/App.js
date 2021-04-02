@@ -7,18 +7,10 @@ function App() {
     return ( 
       <div className = "App" >
         <div className='head'>
-          <Header Name="Sayied Hasan" Img="https://i.ibb.co/Q6F00sw/afaga.png" Login="none"></Header>
+          <Header Name="Sayied Hasan" Img="https://i.ibb.co/Q6F00sw/afaga.png" Login="false"></Header>
         </div>
         <div className='body'>
-          <div className='left'>
-
-          </div>
-          <div className='middle'>
-
-          </div>
-          <div className='right'>
-
-          </div>
+          
         </div>
         <div className='foot'>
           <Footer></Footer>

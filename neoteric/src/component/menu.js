@@ -10,13 +10,6 @@ function Menu(props){
           x.className = "topnav";
         }
       }
-function x(){
-    var i;
-    for(i=0;i<3;i++){
-        
-    }
-    
-}
     return(
         <div className="topnav" id="myTopnav">
   <a href="#home" className="active" >Home</a>
