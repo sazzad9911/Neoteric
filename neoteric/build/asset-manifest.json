@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e9b0ff4d.chunk.css",
+    "main.js": "/static/js/main.b30b537d.chunk.js",
+    "main.js.map": "/static/js/main.b30b537d.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.9de0f8da.js",
+    "runtime-main.js.map": "/static/js/runtime-main.9de0f8da.js.map",
+    "static/js/2.8ee0c63a.chunk.js": "/static/js/2.8ee0c63a.chunk.js",
+    "static/js/2.8ee0c63a.chunk.js.map": "/static/js/2.8ee0c63a.chunk.js.map",
+    "static/js/3.ca9e1b7c.chunk.js": "/static/js/3.ca9e1b7c.chunk.js",
+    "static/js/3.ca9e1b7c.chunk.js.map": "/static/js/3.ca9e1b7c.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.e9b0ff4d.chunk.css.map": "/static/css/main.e9b0ff4d.chunk.css.map",
+    "static/js/2.8ee0c63a.chunk.js.LICENSE.txt": "/static/js/2.8ee0c63a.chunk.js.LICENSE.txt",
+    "static/media/afaga.1f4ae501.png": "/static/media/afaga.1f4ae501.png",
+    "static/media/logo.6ce24c58.svg": "/static/media/logo.6ce24c58.svg",
+    "static/media/logo.ba0c4d72.png": "/static/media/logo.ba0c4d72.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9de0f8da.js",
+    "static/js/2.8ee0c63a.chunk.js",
+    "static/css/main.e9b0ff4d.chunk.css",
+    "static/js/main.b30b537d.chunk.js"
+  ]
+}

@@ -23,7 +23,7 @@ function Footer() {
                  <div className = 'bx2'>
                  <h4>Follow Us</h4>
                  <AiOutlineWhatsApp className = 'f' style={{color: 'green'}}></AiOutlineWhatsApp>
-                 <AiOutlineFacebook className = 'f' style={{color: 'blue'}}></AiOutlineFacebook>
+                 <AiOutlineFacebook className = 'f' style={{color: '#127AF2'}}></AiOutlineFacebook>
                  </div>
 
                  <div className = 'bx2'>
