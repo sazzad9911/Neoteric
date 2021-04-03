@@ -149,10 +149,12 @@ li:hover {
 .mobile-menu1 {
     width: 70%;
     height: 100%;
+    top: 0;
+    right: 0;
     background: #1e1e1e;
-    float: right;
     display: block;
     overflow: hidden;
+    position: absolute;
 }
 
 .img1 {

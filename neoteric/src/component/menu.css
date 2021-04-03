@@ -11,8 +11,19 @@
     font-size: 17px;
 }
 
+.topnav button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 a {
     color: white;
+}
+
+.a {
+    width: 15px;
+    height: 15px;
 }
 
 .active {

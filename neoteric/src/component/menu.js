@@ -1,5 +1,6 @@
 import React from 'react'
 import './menu.css'
+import {AiFillCaretDown} from "react-icons/ai";
 
 function Menu(props){
     function myFunction() {
@@ -15,7 +16,7 @@ function Menu(props){
   <a href="#home" className="active" >Home</a>
   <div className="dropdown">
     <button className="dropbtn">Collections 
-      
+      <AiFillCaretDown className='a'></AiFillCaretDown>
     </button>
     <div className="dropdown-content">
       <a href="#">T Shirt</a>

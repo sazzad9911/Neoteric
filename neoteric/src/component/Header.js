@@ -4,11 +4,9 @@ import logo from '../files/logo.png'
 import Search from './Search';
 import {FaBars} from 'react-icons/fa'
 import { AiOutlineClose } from "react-icons/ai";
-import {CgProfile} from "react-icons/cg";
-import {BiCreditCard} from "react-icons/bi"
-import {IoMdCash} from 'react-icons/io';
 import Menu from './menu'
 import LoginBar from './LoginBar';
+import OutsideClickHandler from 'react-outside-click-handler';
 function Collection(props){
     if(props===1){
         document.getElementById('x').style.display='block';
@@ -50,25 +48,30 @@ function Header(props) {
 
 
 
-            <div className="mobile-menu" id="mobile-menu">
-                <div className="mobile-menu1">
+        <div className="mobile-menu" id="mobile-menu">
+            <OutsideClickHandler
+             onOutsideClick={() => {
+                 Toggle('mobile-menu',0);
+             }}>
+                 <div className="mobile-menu1">
                 <AiOutlineClose className="menu-bar" style={{margin: "5px 5px"}} onClick={Toggle.bind(this,"mobile-menu",0)}></AiOutlineClose>
                 <Search></Search>
                     
                     <div className="profile" style={{marginTop:"8px", display:"block"}}>
                         <h4 >Home</h4>
                         <h4 >Collections</h4>
-                        <h4 style={{fontWeight: "400", margin: "5px 25px"}}>T Shirt</h4>
-                        <h4 style={{fontWeight: "400", margin: "5px 25px"}}>Polo</h4>
-                        <h4 style={{fontWeight: "400", margin: "5px 25px"}}>TurtleNecks</h4>
-                        <h4 style={{fontWeight: "400", margin: "5px 25px"}}>Hoodies</h4>
-                        <h4 style={{fontWeight: "400", margin: "5px 25px"}}>Basicx Full</h4>
-                        <h4 style={{fontWeight: "400", margin: "5px 25px"}}>Sleeves</h4>
+                        <h4 style={{fontWeight: "400", margin: "8px 25px"}}>T Shirt</h4>
+                        <h4 style={{fontWeight: "400", margin: "8px 25px"}}>Polo</h4>
+                        <h4 style={{fontWeight: "400", margin: "8px 25px"}}>TurtleNecks</h4>
+                        <h4 style={{fontWeight: "400", margin: "8px 25px"}}>Hoodies</h4>
+                        <h4 style={{fontWeight: "400", margin: "8px 25px"}}>Basicx Full</h4>
+                        <h4 style={{fontWeight: "400", margin: "8px 25px"}}>Sleeves</h4>
                         <h4>Policies</h4>
                         <h4 >FAQ</h4>
                         <LoginBar name='Sazzad Hossain' display='flex' login={props.Login}></LoginBar>
                     </div>
                 </div>
+        </OutsideClickHandler>
             </div>
         </div>
     );
