@@ -21,14 +21,9 @@ function Footer() {
                  </div>
                  <div className = 'bx2'>
                  <h4>Follow Us</h4>
-<<<<<<< HEAD
-                 <FaInstagramSquare className = 'f'  style={{color: '#0cb35771'}}></FaInstagramSquare>
+                 <FaInstagramSquare className = 'f'  style={{color: '(4, 172, 107, 0.705)'}}></FaInstagramSquare>
                  <AiOutlineFacebook className = 'f' style={{color: 'blue'}}></AiOutlineFacebook>
                  <AiOutlineMail className = 'f'  style={{color: 'hsla(2, 80%, 67%, 0.582)'}}></AiOutlineMail>
-=======
-                 <AiOutlineWhatsApp className = 'f' style={{color: 'green'}}></AiOutlineWhatsApp>
-                 <AiOutlineFacebook className = 'f' style={{color: '#127AF2'}}></AiOutlineFacebook>
->>>>>>> 8adfd6b21ccab1de2cda3de98be87653c2c48ee3
                  </div>
 
                  <div className = 'bx2'>
