@@ -1,0 +1,14 @@
+.card-bx{
+   margin: 0;
+   padding: 0;
+   font-family: 'popping',sans-serif;
+}
+.card{
+       display: flex;
+       justify-self: center;
+       align-items: center;
+       min-height: 100vh;
+       background: #131313;
+
+
+}

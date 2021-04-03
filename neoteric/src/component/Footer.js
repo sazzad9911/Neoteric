@@ -1,6 +1,5 @@
 import React from 'react'
 import './Footer.css'
-import ReactDOM from 'react-dom'
 import { AiOutlineFacebook } from 'react-icons/ai'
 import { FaInstagramSquare} from 'react-icons/fa'
 import { AiOutlineMail} from 'react-icons/ai'
