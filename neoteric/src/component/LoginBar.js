@@ -24,7 +24,7 @@ function LoginBar(props){
         }else{
            return(
             <div className='loginbar'>
-            <img src={img} alt='profile'></img>
+            <img src={props.img} alt='profile'></img>
             <p>{props.name}</p>
             <BsThreeDotsVertical onClick={handleClick}></BsThreeDotsVertical>
             <Menu id="simple-menu" anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={handleClose}>
