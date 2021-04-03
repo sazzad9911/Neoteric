@@ -2,7 +2,6 @@ import React from 'react'
 import './Footer.css'
 import ReactDOM from 'react-dom'
 import { AiOutlineFacebook } from 'react-icons/ai'
-import { AiOutlineWhatsApp} from 'react-icons/ai'
 import { FaInstagramSquare} from 'react-icons/fa'
 import { AiOutlineMail} from 'react-icons/ai'
 import { FaCcVisa} from 'react-icons/fa'
@@ -22,8 +21,9 @@ function Footer() {
                  </div>
                  <div className = 'bx2'>
                  <h4>Follow Us</h4>
-                 <AiOutlineWhatsApp className = 'f' style={{color: 'green'}}></AiOutlineWhatsApp>
-                 <AiOutlineFacebook className = 'f' style={{color: '#127AF2'}}></AiOutlineFacebook>
+                 <FaInstagramSquare className = 'f'  style={{color: '(4, 172, 107, 0.705)'}}></FaInstagramSquare>
+                 <AiOutlineFacebook className = 'f' style={{color: 'blue'}}></AiOutlineFacebook>
+                 <AiOutlineMail className = 'f'  style={{color: 'hsla(2, 80%, 67%, 0.582)'}}></AiOutlineMail>
                  </div>
 
                  <div className = 'bx2'>
@@ -54,6 +54,3 @@ function Footer() {
     );
 }
 export default Footer;
-//  <AiOutlineMail className = 'f'></AiOutlineMail>
-
-//<FaInstagramSquare className = 'f'></FaInstagramSquare>
