@@ -1,0 +1,75 @@
+.login {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+}
+
+.bx1 {
+    width: 320px;
+    height: fit-content;
+    background: #041B2B;
+    margin: 10px 10px;
+    border-radius: 5px;
+    box-shadow: 1px 3px 3px rgba(56, 55, 55, 0.555);
+}
+
+.bx {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: whitesmoke;
+    flex-wrap: wrap;
+}
+
+.input {
+    width: 80%;
+    height: max-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid whitesmoke;
+    border-radius: 5px;
+    margin: 10px 10px;
+}
+
+.input input {
+    margin: 2px 2px;
+    background: none;
+    border: none;
+    color: whitesmoke;
+    outline: none;
+}
+
+.input:hover {
+    background: rgba(245, 245, 245, 0.514);
+}
+
+.bx button {
+    outline: none;
+    margin: 10px 10px;
+}
+
+@media (max-width: 320px) {
+    .bx1 {
+        width: 95vw;
+    }
+}
+
+#bx-name {
+    display: none;
+}
+
+#bx-password1 {
+    display: none;
+}
+
+#bx-signup {
+    display: none;
+}
+
+#bx-send {
+    display: none;
+}

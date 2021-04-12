@@ -16,10 +16,12 @@ function LoginBar(props){
         };
         if(props.login==='false'){
             return(
-                <div className='profile'>
+                <a href='/login'>
+                    <div className='profile' id='xc'>
                         <AiOutlineLogout style={{width: "30px", height:"30px",margin:"5px 5px"}}></AiOutlineLogout>
                         <h4>LogIn</h4>
-               </div>
+                    </div>
+                </a>
             )
         }else{
            return(
