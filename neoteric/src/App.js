@@ -3,7 +3,6 @@ import './App.css';
 import Header from './component/Header'
 import Footer from './component/Footer'
 import Home from './component/Home'
-import Slider from './component/sub-component/Slider'
 import Navigation from './component/sub-component/Navigation'
 import {useState,useEffect} from 'react';
 import Login from './component/user/Login';
@@ -14,8 +13,15 @@ import {
   Link
 } from "react-router-dom";
 import firebaseApp from './firebase'
+import { FaUserAltSlash } from 'react-icons/fa';
+import Loader,{ShowLoader,HideLoader} from './component/sub-component/Loader'
+import Alertt,{ShowAlert,HideAlert} from './component/sub-component/Alert';
+import Policies from './component/Policies';
 
 function App() {
+ const Alert=(data)=>{
+    alert(data.head);
+  }
   const [post,setPost]=useState(null)
   const [users,setUsers]=useState(null)
   const [main,setMain]=useState(null)
@@ -25,11 +31,27 @@ function App() {
     firebaseApp.auth().onAuthStateChanged((user) => {
       if (user) {
        setStatus('true');
-       setUid(user.id);
+       setUid(user.uid);
+       console.log(user.uid);
+       var db=firebaseApp.firestore();
+       db.collection("user").where("id", "==", user.uid)
+    .get()
+    .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          setUsers(doc.data());
+          console.log(doc.data())
+        });
+    })
+    .catch((error) => {
+        console.log("Error getting documents: ", error);
+    });
       } else {
         setStatus('false');
+        //setUsers({'name':'none', 'img': 'none'});
       }
     });
+
+
 
   }, [])
     return ( 
@@ -39,7 +61,13 @@ function App() {
 
       <div className = "App" >
         <div className='head'>
-          <Header Name="Sayied Hasan" Img="https://i.ibb.co/Q6F00sw/afaga.png" Login={login}></Header>
+         {
+           users!=null?(
+            <Header Name={users.name} Img={users.img} Login={login}></Header>
+           ):(
+            <Header Name='' Img='' Login={login}></Header>
+           )
+         }
         </div>
 
         <Switch>
@@ -48,10 +76,18 @@ function App() {
               <Login></Login>
             </div>
           </Route>
-          <Route path=''>
-          <div className='body'>
-          <Slider></Slider>
-        </div>
+          <Route path='/policies'>
+            <div className='body'>
+              <Policies></Policies>
+            </div>
+          </Route>
+          <Route path='/faq'>
+            
+          </Route>
+          <Route path='/'>
+            <div className='body'>
+              <Home></Home>
+            </div>
           </Route>
         </Switch>
 
@@ -59,8 +95,17 @@ function App() {
         <div className='foot'>
           <Footer></Footer>
         </div>
-        <Navigation Name="Sayied Hasan" Img="https://i.ibb.co/Q6F00sw/afaga.png" Login={login}></Navigation>
+        {
+          users!=null?(
+            <Navigation Name={users.name} Img={users.img} Login={login}></Navigation>
+          ):
+          (
+            <Navigation Name='' Img='' Login={login}></Navigation>
+          )
+        }
       </div>
+      <Alertt></Alertt>
+      <Loader></Loader>
       </Router>
     );
 }

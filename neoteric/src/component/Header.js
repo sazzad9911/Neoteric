@@ -28,7 +28,7 @@ function Header(props) {
                 <div className="header-box2" style={{height:"33%", alignItems: 'center'}} id="menus">
                     <Menu></Menu>
                     <Search></Search>
-                    <LoginBar name='Sazzad Hossain' login={props.Login}></LoginBar>
+                    <LoginBar name={props.Name} login={props.Login} img={props.Img}></LoginBar>
                 </div>
                 <div className="header-box3">
                 <FaBars className="menu-bar" onClick={Toggle.bind(this,"mobile-menu",1)}></FaBars>

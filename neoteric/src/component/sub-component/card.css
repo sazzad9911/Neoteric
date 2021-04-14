@@ -1,19 +1,14 @@
-{
-    margin: 0;
-    padding: 0;
-    font-family:'Poppins', sans-serif;
+.card-bx {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+    width: 100%;
+    background: #131313;
+    position: relative;
+}
 
-}
-.card-bx{
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   min-height: 100%;
-   background: #131313;
-   position: relative;
-}
-.card-bx .card{
-       
+.card-bx .card {
     position: relative;
     width: 320px;
     height: 450px;
@@ -21,36 +16,35 @@
     border-radius: 20px;
     overflow: hidden;
 }
-.card-bx .card:before
-{
+
+.card-bx .card:before {
     content: '';
     position: absolute;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     background: #9bdc28;
     clip-Path: circle(150px at 80% 20%);
     transition: 0.5s ease-in-out;
 }
-.card-bx .card:hover:before
-{
+
+.card-bx .card:hover:before {
     clip-path: circle(300px at 800% -20%);
 }
-.card-bx .card:after
-{
+
+.card-bx .card:after {
     content: 'T-Shirt';
     position: absolute;
-    top:30%;
-    left:-20%;
+    top: 30%;
+    left: -20%;
     font-size: 12cm;
     font-weight: 800;
     font-style: italic;
-    color: rgba(255,255,255,0,04);
-   
+    color: rgba(255, 255, 255, 0, 04);
 }
-.card-bx .card .imgbx
-{
+
+.card-bx .card .imgbx {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -59,68 +53,66 @@
     height: 220px;
     transition: 0.5s;
 }
-.card-bx .card:hover .imgbx
-{
+
+.card-bx .card:hover .imgbx {
     top: 0%;
     transform: translateY(0%);
 }
-.card-bx .card:hover .imgbx img
-{
- position: absolute;
- top: 50%;
- left: 50%;
- transform: translate(-50%,-50%);rotate: (-25deg);
- width: 270px;
-}
-.card-bx .card.contentBx
-{
- position: absolute;
- bottom: 0;
- width: 100%;
- height: 100%;
- text-align: center;
- transition: 1s;
- z-index: 10;
-}
-.card-bx .card:hover.contentBx
-{
- height: 210px;
-}
-.card-bx .card.contentBx h2
-{
 
+.card-bx .card:hover .imgbx img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    rotate: (-25deg);
+    width: 270px;
+}
+
+.card-bx .card.contentBx {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: 1s;
+    z-index: 10;
+}
+
+.card-bx .card:hover.contentBx {
+    height: 210px;
+}
+
+.card-bx .card.contentBx h2 {
     position: relative;
     font-weight: 600;
     letter-spacing: 1px;
     color: #fff;
-
 }
-.card-bx .card.contentBx.size
-{
-display: flex;
-justify-content: center;
-align-items: center;
-padding: 8px 20px;
-transition: 0.5s;
 
+.card-bx .card.contentBx.size {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 20px;
+    transition: 0.5s;
 }
-.card-bx .card.contentBx.size h3
-{
-color: #fff;
-font-weight: 300;
-font-size: 14px;
-text-transform: uppercase;
-letter-spacing: 2px;
-margin-right: 10px;
 
+.card-bx .card.contentBx.size h3 {
+    color: #fff;
+    font-weight: 300;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-right: 10px;
+}
 
+.size {
+    justify-self: center;
+    align-items: center;
+    color: tomato;
 }
-.size{
- justify-self: center;
- align-items: center;
- color: tomato;
-}
-.card img{
- width: 100px;
- height: 150px;
+
+.card img {
+    width: 100px;
+    height: 150px;
 }

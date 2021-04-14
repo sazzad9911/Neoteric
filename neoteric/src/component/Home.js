@@ -1,19 +1,17 @@
 import React from 'react'
 import './Home.css'
 import Card from './sub-component/Card'
-import Slider from './sub-component/Slider'
+import ImageSlider from './sub-component/ImageSlide'
 import img1 from './../files/ismart-shankar_156195627930.jpg'
 import img2 from './../files/shutterstock_1009843408.jpg'
 import img3 from './../files/shutterstock_554314555_copy.jpg'
+import Slider from './../component/sub-component/Slider'
 
 function Home(){
     return(
         <div className='home'>
+            <div className='imgslide'>
             
-            <Card></Card>
-        
-            <div className='bx1'>
-            <Slider img1={img1} img2={img2} img3={img3} name1='Be loved each other' name2='Something awessome is comming' name3='Scenario is the theme of your work'></Slider>
             </div>
             <h4>Recent Product :</h4>
             <div className='bx2'>

@@ -1,0 +1,10 @@
+.policies {
+    width: 100%;
+    min-height: 50vh;
+    padding: 10px 10px;
+}
+
+.policies h5 {
+    font-size: 15px;
+    margin: 2px 2px;
+}

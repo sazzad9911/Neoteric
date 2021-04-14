@@ -11,7 +11,7 @@ function Card() {
              <div className ='contentBx'>
              <h2>T-Start</h2>
          <div className = 'size' >
-             <h3>Size</h3>
+             <h3>Size</h3> 
              <span>s</span>
              <span>m</span>
              <span>l</span>

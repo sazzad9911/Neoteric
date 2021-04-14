@@ -15,3 +15,10 @@
     border-bottom: 1px solid rgb(241, 105, 128);
     color: rgb(0, 0, 0);
 }
+
+.imgslide {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+}

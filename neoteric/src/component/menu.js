@@ -13,7 +13,7 @@ function Menu(props){
       }
     return(
         <div className="topnav" id="myTopnav">
-  <a href="#home" className="active" >Home</a>
+  <a href="/">Home</a>
   <div className="dropdown">
     <button className="dropbtn">Collections 
       <AiFillCaretDown className='a'></AiFillCaretDown>
@@ -26,8 +26,8 @@ function Menu(props){
       <a href='#'>Sleeves</a>
     </div>
   </div> 
-  <a href="#contact">Policies</a>
-  <a href="#about" >FAQ</a>
+  <a href="/policies">Policies</a>
+  <a href="/faq" >FAQ</a>
   <a href="javascript:void(0);" className="icon" onClick={myFunction}>&#9776;</a>
 </div>
     )

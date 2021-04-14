@@ -5,8 +5,13 @@ import {RiLockPasswordLine} from 'react-icons/ri';
 import {CgLogIn} from 'react-icons/cg';
 import {BiRename} from 'react-icons/bi';
 import firebaseApp from './../../firebase';
+import {useState} from 'react';
+import Loader,{ShowLoader,HideLoader} from './../sub-component/Loader';
+import {ShowAlert,HideAlert} from './../sub-component/Alert';
 
 const Login=()=>{
+
+    const [alert,setAlert]=useState(null)
     const Create=()=>{
         document.getElementById('bx-name').style.display='flex';
         document.getElementById('txt').innerHTML='Create Account';
@@ -41,6 +46,7 @@ const Login=()=>{
         document.getElementById('forget').style.display='none';
     }
     const CreateAccount=()=>{
+        
         const email=document.getElementById('email').value;
         const password=document.getElementById('password').value;
         const repassword=document.getElementById('repassword').value;
@@ -58,9 +64,78 @@ const Login=()=>{
         }else{
             document.getElementById('bx-password1').style.border='1px solid green';
         }
-        
-
+        if(password===''){
+            document.getElementById('bx-password').style.border='1px solid red';
+            return; 
+        }else{
+            document.getElementById('bx-password').style.border='1px solid green';
+        }
+        if(repassword===''){
+            document.getElementById('bx-password1').style.border='1px solid red';
+            return;
+        }else{
+            document.getElementById('bx-password1').style.border='1px solid green';
+        }
+        ShowLoader();
+        firebaseApp.auth().createUserWithEmailAndPassword(email, password)
+           .then((userCredential) => {
+               const user=userCredential.user;
+               console.log(user.uid);
+               // Add a new document in collection "cities"
+               var uid = user.uid;
+               const db=firebaseApp.firestore();
+         db.collection("user").doc().set({
+             name: name,
+             img: "https://i.ibb.co/23HZWN7/png-transparent-computer-icons-user-icon-design-numerous-miscellaneous-logo-computer-wallpaper-thumb.png",
+             address: "update now",
+             phone: "update now",
+             email: email,
+             id: uid
+          })
+          .then(() => {
+            console.log("Document successfully written!");
+            window.location.replace('/');
+          })
+          .catch((error) => {
+           console.error("Error writing document: ", error);
+           HideLoader()
+        });  
+            })
+            .catch((error) => {
+                var errorMessage=error.errorMessage;
+                ShowAlert('Account Status!',errorMessage);
+                HideLoader();
+            });
     }
+    const LogIn=()=>{
+        ShowLoader();
+    const email=document.getElementById('email').value;
+    const password=document.getElementById('password').value;
+    firebaseApp.auth().signInWithEmailAndPassword(email, password)
+     .then((userCredential) => {
+         window.location.replace('/');
+  })
+  .catch((error) => {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    //SetData(errorMessage);
+    HideLoader();
+    ShowAlert('Login Status!',errorMessage);
+  });
+}
+const Forgetpassword=()=>{
+    ShowLoader();
+var auth = firebaseApp.auth();
+var emailAddress = document.getElementById('email').value;
+
+auth.sendPasswordResetEmail(emailAddress).then(function() {
+        ShowAlert('Reset Password!','Please check your mail box. A mail has sent.');
+        HideLoader();
+      }).catch(function(error) {
+          ShowAlert('Reset Password',error.message);
+          HideLoader();
+    });
+}     
     return(
         <div className='login'>
             <div className='bx1'>
@@ -88,7 +163,7 @@ const Login=()=>{
                         <input type='password' placeholder='Rewrite Password...' id='repassword'>
                         </input>
                     </div>
-                    <div className='input' id='bx-login'>
+                    <div className='input' id='bx-login' onClick={LogIn}>
                         <CgLogIn></CgLogIn>
                         <input type='submit' value='LogIn'>
                         </input>
@@ -98,7 +173,7 @@ const Login=()=>{
                         <input type='submit' value='SignUp'>
                         </input>
                     </div>
-                    <div className='input' id='bx-send'>
+                    <div className='input' id='bx-send' onClick={Forgetpassword}>
                         <CgLogIn></CgLogIn>
                         <input type='submit' value='Send'>
                         </input>
