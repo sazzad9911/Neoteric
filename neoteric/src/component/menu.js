@@ -2,6 +2,10 @@ import React from 'react'
 import './menu.css'
 import {AiFillCaretDown} from "react-icons/ai";
 
+
+export const ActiveMenu=(props)=>{
+  document.getElementById(props).className='active';
+}
 function Menu(props){
     function myFunction() {
         var x = document.getElementById("myTopnav");
@@ -13,7 +17,7 @@ function Menu(props){
       }
     return(
         <div className="topnav" id="myTopnav">
-  <a href="/">Home</a>
+  <a href="/" id='home'>Home</a>
   <div className="dropdown">
     <button className="dropbtn">Collections 
       <AiFillCaretDown className='a'></AiFillCaretDown>
@@ -26,10 +30,10 @@ function Menu(props){
       <a href='#'>Sleeves</a>
     </div>
   </div> 
-  <a href="/policies">Policies</a>
-  <a href="/faq" >FAQ</a>
+  <a href="/policies" id='policies'>Policies</a>
+  <a href="/faq" id='faq'>FAQ</a>
   <a href="javascript:void(0);" className="icon" onClick={myFunction}>&#9776;</a>
 </div>
-    )
+)
 }
 export default Menu;

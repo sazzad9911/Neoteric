@@ -17,6 +17,7 @@ import { FaUserAltSlash } from 'react-icons/fa';
 import Loader,{ShowLoader,HideLoader} from './component/sub-component/Loader'
 import Alertt,{ShowAlert,HideAlert} from './component/sub-component/Alert';
 import Policies from './component/Policies';
+import {ActiveMenu} from './component/menu'
 
 function App() {
  const Alert=(data)=>{
