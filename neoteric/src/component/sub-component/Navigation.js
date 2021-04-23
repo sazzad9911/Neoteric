@@ -14,7 +14,8 @@ export function Toggle(name,boolean){
         document.getElementById(name).style.display='none';
     }
 }
-function Navigation(props){
+function Navigation({data}){
+    
   return(
     <div className="mobile-menu" id="mobile-menu">
     <OutsideClickHandler
@@ -25,7 +26,7 @@ function Navigation(props){
         <AiOutlineClose className="menu-bar" style={{margin: "5px 5px"}} onClick={Toggle.bind(this,"mobile-menu",0)}></AiOutlineClose>
         <Search></Search>
             
-            <div className="profile" style={{marginTop:"8px", display:"block"}}>
+            <div className="pro" style={{marginTop:"8px", display:"block"}}>
                 <h4 >Home</h4>
                 <h4 >Collections</h4>
                 <h4 style={{fontWeight: "400", margin: "8px 25px"}}>T Shirt</h4>
@@ -36,7 +37,7 @@ function Navigation(props){
                 <h4 style={{fontWeight: "400", margin: "8px 25px"}}>Sleeves</h4>
                 <h4>Policies</h4>
                 <h4 >FAQ</h4>
-                <LoginBar name={props.Name} display='flex' login={props.Login} img={props.Img}></LoginBar>
+                <LoginBar data={data}></LoginBar>
             </div>
         </div>
 </OutsideClickHandler>

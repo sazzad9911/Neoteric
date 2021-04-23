@@ -177,6 +177,21 @@ li:hover {
     cursor: pointer;
 }
 
+.pro {
+    display: block;
+    color: white;
+    margin: 8px 8px;
+}
+
+.pro h4 {
+    text-align: left;
+}
+
+.pro h4:hover {
+    color: tomato;
+    cursor: pointer;
+}
+
 @media(max-width: 780px) {
     #menus {
         display: none;

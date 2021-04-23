@@ -84,7 +84,7 @@ const Login=()=>{
                // Add a new document in collection "cities"
                var uid = user.uid;
                const db=firebaseApp.firestore();
-         db.collection("user").doc().set({
+         db.collection("user").doc(uid).set({
              name: name,
              img: "https://i.ibb.co/23HZWN7/png-transparent-computer-icons-user-icon-design-numerous-miscellaneous-logo-computer-wallpaper-thumb.png",
              address: "update now",

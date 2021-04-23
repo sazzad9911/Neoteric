@@ -33,13 +33,13 @@ function Footer() {
                  <button>SUBSCRIBE</button>
                 
                  </div>
-                <div className = 'bx2'>
+                <div className = 'bx2' id='foot'>
                <h4>Navigate</h4>
-               <li>Home</li>
-               <li>Collections</li>
-               <li>FAQ</li>
-               <li>Policies</li>
-                 </div>
+               <a href='/'>Home</a><br></br><br></br>
+               <a href='/collections'>Collections</a><br></br><br></br>
+               <a href='/faq'>FAQ</a><br></br><br></br>
+               <a href='policies'>Policies</a>
+                </div>
               
              </div>
             <div className = 'footer-box2' >

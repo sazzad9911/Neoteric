@@ -17,12 +17,16 @@ import { FaUserAltSlash } from 'react-icons/fa';
 import Loader,{ShowLoader,HideLoader} from './component/sub-component/Loader'
 import Alertt,{ShowAlert,HideAlert} from './component/sub-component/Alert';
 import Policies from './component/Policies';
-import {ActiveMenu} from './component/menu'
-
+import {ActiveMenu} from './component/menu';
+import Profile from './component/user/Profile';
+var refresh=1;
+export const Click=(d)=>{
+  document.getElementById(d).click();
+}
+export const Refresh=(p)=>{
+  refresh=p;
+}
 function App() {
- const Alert=(data)=>{
-    alert(data.head);
-  }
   const [post,setPost]=useState(null)
   const [users,setUsers]=useState(null)
   const [main,setMain]=useState(null)
@@ -54,19 +58,19 @@ function App() {
 
 
 
-  }, [])
+  }, [refresh])
     return ( 
       <Router>
-
-
-
+        <Link to='/profile' id='profile'>
+        </Link>
+        <Link to='/my-account' id='my-account'></Link>
       <div className = "App" >
         <div className='head'>
          {
            users!=null?(
-            <Header Name={users.name} Img={users.img} Login={login}></Header>
+            <Header data={users}></Header>
            ):(
-            <Header Name='' Img='' Login={login}></Header>
+            <Header data={users}></Header>
            )
          }
         </div>
@@ -83,7 +87,19 @@ function App() {
             </div>
           </Route>
           <Route path='/faq'>
-            
+          <div className='body'>
+              
+          </div>
+          </Route>
+          <Route path='/collections'>
+            <div className='body'>
+
+            </div>
+          </Route>
+          <Route path='/profile'>
+            <div className='body'>
+              <Profile data={users}></Profile>
+            </div>
           </Route>
           <Route path='/'>
             <div className='body'>
@@ -98,10 +114,10 @@ function App() {
         </div>
         {
           users!=null?(
-            <Navigation Name={users.name} Img={users.img} Login={login}></Navigation>
+            <Navigation data={users} ></Navigation>
           ):
           (
-            <Navigation Name='' Img='' Login={login}></Navigation>
+            <Navigation data={users}></Navigation>
           )
         }
       </div>

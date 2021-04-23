@@ -6,9 +6,8 @@
     background: #1e1e1e;
     box-shadow: -1px -1px 4px rgb(155, 151, 151);
 }
-   
-.footer-box1 {
 
+.footer-box1 {
     width: 100%;
     height: fit-content;
     display: flex;
@@ -23,31 +22,35 @@
     text-align: center;
     color: white;
 }
-.bx2{
+
+.bx2 {
     padding: 0%;
     width: 170px;
     margin: 5px 10px;
     height: fit-content;
     color: white;
     overflow-wrap: break-word;
-    
 }
-.bx2 h4{
+
+.bx2 h4 {
     margin-top: 10px;
 }
-.f{
+
+.f {
     margin: 4px 4px;
     width: 30px;
     height: 30px;
 }
-.bx2 input{
+
+.bx2 input {
     outline: none;
     border: none;
     border-radius: 5px;
     height: 25px;
     margin: 5px 0px;
 }
-.bx2 button{
+
+.bx2 button {
     width: 100px;
     height: 28px;
     border-radius: 3px;
@@ -55,6 +58,15 @@
     background: green;
     color: white;
 }
-.bx2 li{
+
+.bx2 li {
     cursor: pointer;
+}
+
+#foot a {
+    text-decoration: none;
+}
+
+#foot a:hover {
+    color: orangered;
 }

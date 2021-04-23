@@ -6,7 +6,8 @@ import MenuItem from '@material-ui/core/MenuItem'
 import Menu from '@material-ui/core/Menu'
 import{AiOutlineLogout} from 'react-icons/ai'
 import firebaseApp from './../firebase'
-function LoginBar(props){
+import {Click} from './../App'  
+function LoginBar({data}){
     const Logout=()=>{
         open(null);  
         firebaseApp.auth().signOut().then(() => {
@@ -23,9 +24,14 @@ function LoginBar(props){
         };  
   
         const handleClose = () => {  
-                open(null);  
+                open(null);
+                Click('profile');
         };
-        if(props.login==='false'){
+        const handleClosee = () => {  
+            open(null);
+            Click('my-account')
+        };
+        if(data===null){
             return(
                 <a href='/login' style={{textDecoration:'none'}}>
                     <div className='profile' id='xc'>
@@ -37,12 +43,12 @@ function LoginBar(props){
         }else{
            return(
             <div className='loginbar'>
-            <img src={props.img} alt='profile'></img>
-            <p>{props.name}</p>
+            <img src={data.img} alt='profile'></img>
+            <p>{data.name}</p>
             <BsThreeDotsVertical onClick={handleClick}></BsThreeDotsVertical>
             <Menu id="simple-menu" anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={handleClose}>
               <MenuItem onClick={handleClose}>Profile</MenuItem>
-              <MenuItem onClick={handleClose}>My account</MenuItem>
+              <MenuItem onClick={handleClosee}>My account</MenuItem>
               <MenuItem onClick={Logout}>Logout</MenuItem>
             </Menu>
         </div>
