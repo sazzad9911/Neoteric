@@ -10,9 +10,18 @@
     height: fit-content;
 }
 
+.head1 {
+    width: 100%;
+    height: fit-content;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+}
+
 .body {
     width: 100%;
-    min-height: fit-content;
+    min-height: 60vh;
     display: flex;
     justify-content: center;
 }

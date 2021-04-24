@@ -31,9 +31,12 @@ function LoginBar({data}){
             open(null);
             Click('my-account')
         };
+        const Login=()=>{
+            Click('login');
+        };
         if(data===null){
             return(
-                <a href='/login' style={{textDecoration:'none'}}>
+                <a onClick={Login} style={{textDecoration:'none'}}>
                     <div className='profile' id='xc'>
                         <AiOutlineLogout style={{width: "30px", height:"30px",margin:"5px 5px"}}></AiOutlineLogout>
                         <h4>LogIn</h4>

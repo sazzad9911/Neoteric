@@ -19,14 +19,18 @@ import Alertt,{ShowAlert,HideAlert} from './component/sub-component/Alert';
 import Policies from './component/Policies';
 import {ActiveMenu} from './component/menu';
 import Profile from './component/user/Profile';
-var refresh=1;
+
 export const Click=(d)=>{
   document.getElementById(d).click();
 }
-export const Refresh=(p)=>{
-  refresh=p;
+export const Refresh=()=>{
+  const [value, setValue] = useState(0); // integer state
+  return () => setValue(value => value + 1);
+
 }
 function App() {
+  //const Refresh= new Refresh();
+  //console.log(Refresh.value);
   const [post,setPost]=useState(null)
   const [users,setUsers]=useState(null)
   const [main,setMain]=useState(null)
@@ -56,16 +60,27 @@ function App() {
       }
     });
 
-
-
-  }, [refresh])
+  }, []);
     return ( 
       <Router>
         <Link to='/profile' id='profile'>
         </Link>
         <Link to='/my-account' id='my-account'></Link>
+        <Link to='/login' id='login'></Link>
+        <Link to='/policies' id='policies'></Link>
+        <Link to='/faq' id='faq'></Link>
+        <Link to='/' id='home'></Link>
       <div className = "App" >
         <div className='head'>
+         {
+           users!=null?(
+            <Header data={users}></Header>
+           ):(
+            <Header data={users}></Header>
+           )
+         }
+        </div>
+        <div className='head1'>
          {
            users!=null?(
             <Header data={users}></Header>
@@ -99,6 +114,11 @@ function App() {
           <Route path='/profile'>
             <div className='body'>
               <Profile data={users}></Profile>
+            </div>
+          </Route>
+          <Route path='my-account'>
+            <div className='body'>
+
             </div>
           </Route>
           <Route path='/'>

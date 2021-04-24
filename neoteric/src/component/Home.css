@@ -22,3 +22,9 @@
     display: flex;
     justify-content: center;
 }
+
+.bx22 {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}

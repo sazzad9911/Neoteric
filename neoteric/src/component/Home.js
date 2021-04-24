@@ -14,12 +14,15 @@ function Home(){
             
             </div>
             <h4>Recent Product :</h4>
-            <div className='bx2'>
+            <div className='bx22'>
+                <Card></Card>
+                <Card></Card>
                 
             </div>
             <h4>Top Product :</h4>
-            <div className='bx3'>
-                
+            <div className='bx22'>
+            <Card></Card>
+            <Card></Card>
             </div>
         </div> 
     )

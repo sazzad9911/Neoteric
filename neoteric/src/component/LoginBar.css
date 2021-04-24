@@ -46,3 +46,7 @@
 #xc:hover {
     color: tomato;
 }
+
+#simple-menu {
+    z-index: 800000;
+}
