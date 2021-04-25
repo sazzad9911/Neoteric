@@ -8,16 +8,17 @@ import img3 from './../files/shutterstock_554314555_copy.jpg'
 import Slider from './../component/sub-component/Slider'
 import firebaseApp from './../firebase'
 import {ShowLoader,HideLoader} from './sub-component/Loader'
-import Carousel from 'react-elastic-carousel';
 function Home(){
 
     const [recent,setRecent]=useState([]);
+    const [top,setTop]=useState([]);
 
     useEffect(()=>{
         ShowLoader();
         const db=firebaseApp.firestore();
-        var i=0;
-        var a=[]
+        var i=0,j=0;
+        var a=[];
+        var b=[];
         db.collection("post").orderBy('date','desc').limit(10)
            .get()
            .then((querySnapshot) => {
@@ -27,6 +28,20 @@ function Home(){
             i++;
         });
         setRecent(a);
+      })
+        .catch((error) => {
+        console.log("Error getting documents: ", error);
+        HideLoader();
+      });
+      db.collection("post").orderBy('view','desc').limit(10)
+           .get()
+           .then((querySnapshot) => {
+              querySnapshot.forEach((doc) => {
+            console.log(doc.id, " => ", doc.data());
+            b[j]=doc.data();
+            j++;
+        });
+        setTop(b);
         HideLoader();
       })
         .catch((error) => {
@@ -41,11 +56,9 @@ function Home(){
             
             </div>
             <h4>Recent Product :</h4>
-            <div className='bx22'>
-                <Carousel>
-                {
+            {
                     recent!==null?(
-                        <div>
+                        <div className='bx22'>
                             {
                                 recent.map((d,i)=>(
                                     <Card data={d}></Card>
@@ -54,17 +67,28 @@ function Home(){
                         </div>
                     ):
                     (
-                        <div>
+                        <div className='bx22'>
                             <h3>No document to view</h3>
                         </div>
                     )
                 }
-                </Carousel>
-            </div>
             <h4>Top Product :</h4>
-            <div className='bx22'>
-           
-            </div>
+            {
+                    top!==null?(
+                        <div className='bx22'>
+                            {
+                                top.map((d,i)=>(
+                                    <Card data={d}></Card>
+                                ))
+                            }
+                        </div>
+                    ):
+                    (
+                        <div className='bx22'>
+                            <h3>No document to view</h3>
+                        </div>
+                    )
+                }
         </div> 
     )
 }

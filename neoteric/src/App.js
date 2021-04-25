@@ -61,6 +61,7 @@ function App() {
     });
 
   }, []);
+
     return ( 
       <Router>
         <Link to='/profile' id='profile'>
@@ -80,7 +81,7 @@ function App() {
            )
          }
         </div>
-        <div className='head1'>
+        <div className='head1' id='navbar'>
          {
            users!=null?(
             <Header data={users}></Header>

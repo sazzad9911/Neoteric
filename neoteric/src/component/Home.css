@@ -1,6 +1,8 @@
 .home {
-    width: 95%;
+    width: 96%;
+    overflow: hidden;
     min-height: 40vh;
+    display: block;
 }
 
 .card-bx {
@@ -26,6 +28,13 @@
 .bx22 {
     display: flex;
     width: 100%;
+    justify-content: center;
     height: 300px;
-    overflow-x: scroll;
+    flex-wrap: wrap;
+}
+
+.bx102 {
+    width: 100vw;
+    height: 300px;
+    background: red;
 }
