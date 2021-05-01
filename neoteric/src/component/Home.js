@@ -19,7 +19,7 @@ function Home(){
         var i=0,j=0;
         var a=[];
         var b=[];
-        db.collection("post").orderBy('date','desc').limit(10)
+        db.collection("post").orderBy('date','desc').limit(8)
            .get()
            .then((querySnapshot) => {
               querySnapshot.forEach((doc) => {
@@ -33,7 +33,7 @@ function Home(){
         console.log("Error getting documents: ", error);
         HideLoader();
       });
-      db.collection("post").orderBy('view','desc').limit(10)
+      db.collection("post").orderBy('view','desc').limit(8)
            .get()
            .then((querySnapshot) => {
               querySnapshot.forEach((doc) => {
@@ -53,15 +53,16 @@ function Home(){
     return(
         <div className='home'>
             <div className='imgslide'>
-            
+                <Slider img1={img1} img2={img2} img3={img3}></Slider>
             </div>
             <h4>Recent Product :</h4>
+            <div className='sliderr'>
             {
                     recent!==null?(
                         <div className='bx22'>
                             {
                                 recent.map((d,i)=>(
-                                    <Card data={d}></Card>
+                                    <Card data={d} className='slide'></Card>
                                 ))
                             }
                         </div>
@@ -72,6 +73,7 @@ function Home(){
                         </div>
                     )
                 }
+            </div>
             <h4>Top Product :</h4>
             {
                     top!==null?(

@@ -4,6 +4,7 @@ import Search from './../Search';
 import LoginBar from './../LoginBar';
 import { AiOutlineClose } from "react-icons/ai";
 import OutsideClickHandler from 'react-outside-click-handler';
+import {Click} from './../../App'
 
 export function Toggle(name,boolean){
     boolean=parseInt(boolean);
@@ -15,7 +16,18 @@ export function Toggle(name,boolean){
     }
 }
 function Navigation({data}){
-    
+    const Home=()=>{
+        Click('home');
+        Toggle('mobile-menu',0);
+    }
+    const Policies=()=>{
+        Click('policies');
+        Toggle('mobile-menu',0);
+    }
+    const Faq=()=>{
+        Click('faq');
+        Toggle('mobile-menu',0);
+    }
   return(
     <div className="mobile-menu" id="mobile-menu">
     <OutsideClickHandler
@@ -27,7 +39,7 @@ function Navigation({data}){
         <Search></Search>
             
             <div className="pro" style={{marginTop:"8px", display:"block"}}>
-                <h4 >Home</h4>
+                <h4 onClick={Home}>Home</h4>
                 <h4 >Collections</h4>
                 <h4 style={{fontWeight: "400", margin: "8px 25px"}}>T Shirt</h4>
                 <h4 style={{fontWeight: "400", margin: "8px 25px"}}>Polo</h4>
@@ -35,8 +47,8 @@ function Navigation({data}){
                 <h4 style={{fontWeight: "400", margin: "8px 25px"}}>Hoodies</h4>
                 <h4 style={{fontWeight: "400", margin: "8px 25px"}}>Basicx Full</h4>
                 <h4 style={{fontWeight: "400", margin: "8px 25px"}}>Sleeves</h4>
-                <h4>Policies</h4>
-                <h4 >FAQ</h4>
+                <h4 onClick={Policies}>Policies</h4>
+                <h4 onClick={Faq}>FAQ</h4>
                 <LoginBar data={data}></LoginBar>
             </div>
         </div>

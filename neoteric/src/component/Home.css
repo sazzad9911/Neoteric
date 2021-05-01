@@ -28,13 +28,5 @@
 .bx22 {
     display: flex;
     width: 100%;
-    justify-content: center;
-    height: 300px;
     flex-wrap: wrap;
-}
-
-.bx102 {
-    width: 100vw;
-    height: 300px;
-    background: red;
 }
