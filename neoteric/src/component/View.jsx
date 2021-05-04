@@ -145,7 +145,7 @@ const View=(props)=>{
                             )
                         }else{
                             return(
-                                <div>No such as data</div>
+                                <div></div>
                             )
                         }
                     })
