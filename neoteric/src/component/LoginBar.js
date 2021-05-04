@@ -7,6 +7,7 @@ import Menu from '@material-ui/core/Menu'
 import{AiOutlineLogout} from 'react-icons/ai'
 import firebaseApp from './../firebase'
 import {Click} from './../App'  
+import {Close} from './../component/sub-component/Navigation'
 function LoginBar({data}){
     const Logout=()=>{
         open(null);  
@@ -33,6 +34,7 @@ function LoginBar({data}){
         };
         const Login=()=>{
             Click('login');
+            Close();
         };
         if(data===null){
             return(

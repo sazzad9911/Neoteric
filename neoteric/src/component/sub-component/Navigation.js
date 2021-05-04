@@ -15,6 +15,9 @@ export function Toggle(name,boolean){
         document.getElementById(name).style.display='none';
     }
 }
+export const Close=()=>{
+    document.getElementById('mobile-menu').style.display='none';
+}
 function Navigation({data}){
     const Home=()=>{
         Click('home');

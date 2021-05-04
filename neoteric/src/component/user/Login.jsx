@@ -90,11 +90,12 @@ const Login=()=>{
              address: "update now",
              phone: "update now",
              email: email,
-             id: uid
+             id: uid,
+             admin: false
           })
           .then(() => {
             console.log("Document successfully written!");
-            window.location.replace('/');
+            window.location.replace('/my-account');
           })
           .catch((error) => {
            console.error("Error writing document: ", error);
@@ -113,7 +114,7 @@ const Login=()=>{
     const password=document.getElementById('password').value;
     firebaseApp.auth().signInWithEmailAndPassword(email, password)
      .then((userCredential) => {
-         window.location.replace('/');
+         window.location.replace('/my-account');
   })
   .catch((error) => {
     var errorCode = error.code;

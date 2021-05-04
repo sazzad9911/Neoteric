@@ -86,6 +86,9 @@
     margin: 26.5px 2px;
     transition: .5s;
     font-size: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .container .card .contentBx:hover h2 {
@@ -135,6 +138,9 @@
     height: fit-content;
     display: flex;
     justify-content: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .colorr span {
@@ -161,4 +167,8 @@
     .container .card {
         width: 42vw;
     }
+}
+
+a {
+    cursor: pointer;
 }

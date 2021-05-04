@@ -13,36 +13,37 @@ import {
   Link
 } from "react-router-dom";
 import firebaseApp from './firebase'
-import { FaUserAltSlash } from 'react-icons/fa';
 import Loader,{ShowLoader,HideLoader} from './component/sub-component/Loader'
 import Alertt,{ShowAlert,HideAlert} from './component/sub-component/Alert';
 import Policies from './component/Policies';
-import {ActiveMenu} from './component/menu';
 import Profile from './component/user/Profile';
+import View from './component/View';
+import posts from './files/post.json';
+import Myaccount from './component/user/Myaccount';
 
 export const Click=(d)=>{
   document.getElementById(d).click();
 }
 export const Refresh=()=>{
-  const [value, setValue] = useState(0); // integer state
-  return () => setValue(value => value + 1);
 
 }
 function App() {
   //const Refresh= new Refresh();
   //console.log(Refresh.value);
-  const [post,setPost]=useState(null)
+  //Post=()=>Post();
+  const [post,setPost]=useState(null);
   const [users,setUsers]=useState(null)
-  const [main,setMain]=useState(null)
+  const [alluser,setAlluser]=useState(null)
   const [login,setStatus]=useState(null)
   const [uid,setUid]=useState(null)
+  const [admin,setAdmin]=useState(null);
   useEffect(() => {
+    var db=firebaseApp.firestore();
     firebaseApp.auth().onAuthStateChanged((user) => {
       if (user) {
        setStatus('true');
        setUid(user.uid);
        console.log(user.uid);
-       var db=firebaseApp.firestore();
        db.collection("user").where("id", "==", user.uid)
     .get()
     .then((querySnapshot) => {
@@ -60,6 +61,21 @@ function App() {
       }
     });
 
+    db.collection('admin').doc('management').get().then((doc)=>{
+      setAdmin(doc.data());
+      //console.log(doc.data());
+    })
+    var all=[];
+    var i=0;
+    db.collection("user").orderBy("name","asc")
+    .get()
+    .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            all[i]=doc.data();
+            i++;
+        });
+        setAlluser(all);
+    })
   }, []);
 
     return ( 
@@ -71,6 +87,7 @@ function App() {
         <Link to='/policies' id='policies'></Link>
         <Link to='/faq' id='faq'></Link>
         <Link to='/' id='home'></Link>
+        <Link to='/view' id='view'></Link>
       <div className = "App" >
         <div className='head'>
          {
@@ -117,14 +134,26 @@ function App() {
               <Profile data={users}></Profile>
             </div>
           </Route>
-          <Route path='my-account'>
+          <Route path='/my-account'>
             <div className='body'>
-
+              {
+                users!=null?(
+                  <Myaccount user={users}></Myaccount>
+                ):
+                (
+                  <Login></Login>
+                )
+              }
+            </div>
+          </Route>
+          <Route path='/view'>
+            <div className='body'>
+            <View data={post} users={alluser}></View>
             </div>
           </Route>
           <Route path='/'>
             <div className='body'>
-              <Home></Home>
+            <Home admin={admin} changePost={post=>setPost(post)}></Home>
             </div>
           </Route>
         </Switch>

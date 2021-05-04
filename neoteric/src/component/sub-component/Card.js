@@ -1,9 +1,19 @@
 import React from 'react'
 import './card.css'
-import x from './../../files/printed-t-shirt-red-png-download-700700-free-transparent-red-t-shirt-png-900_700-removebg-preview.png'
+import firebaseApp from './../../firebase'
 
-function Card({data}) {
-    if(data===null){
+function Card(props) {
+
+    const ViewNow=()=>{
+        //Click('view');
+        props.changePost(props.data);
+        const db=firebaseApp.firestore();
+        const v=firebaseApp.firestore.FieldValue.increment();
+        db.collection('post').doc(props.data.id).update({
+            view: v
+        })
+    }
+    if(props.data===null){
         return(
             <div className='container'>
                 <div className='card'>
@@ -19,15 +29,15 @@ function Card({data}) {
          <div className='container'>
              <div className='card' >
                  <div className='imgBx'>
-                     <img src={data.img} alt='n'></img>
+                     <img src={props.data.img} alt='n'></img>
                  </div>
                  <div className='contentBx'>
-                     <h2>{data.name}</h2>
-                     <h3>Prize: {data.prize}</h3>
+                     <h2>{props.data.name}</h2>
+                     <h3>Prize: {props.data.prize}</h3>
                      <div className='size'>
                          <h3>Size :</h3>
                          {
-                             data.size.map((d,i)=>(
+                             props.data.size.map((d,i)=>(
                                 <span>{d}</span>
                              ))
                          }
@@ -35,12 +45,12 @@ function Card({data}) {
                      <div className='colorr'>
                          <h3>Color :</h3>
                          {
-                             data.color.map((dat,i)=>(
+                             props.data.color.map((dat,i)=>(
                                  <span style={{background: dat}}></span>
                              ))
                          }
                      </div>
-                     <a>View Now</a>
+                     <a onClick={ViewNow}>View Now</a>
                  </div>
              </div>
          </div>

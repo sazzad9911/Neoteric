@@ -20,11 +20,10 @@ function Footer() {
                  </div>
                  <div className = 'bx2'>
                  <h4>Follow Us</h4>
-                 <FaInstagramSquare className = 'f'  style={{color: '(4, 172, 107, 0.705)'}}></FaInstagramSquare>
-                 <AiOutlineFacebook className = 'f' style={{color: 'blue'}}></AiOutlineFacebook>
-                 <AiOutlineMail className = 'f'  style={{color: 'hsla(2, 80%, 67%, 0.582)'}}></AiOutlineMail>
+                 <a href='https://instagram.com/neoteric.bd?igshid=1fkygquk0nk1i' target='_blank'><FaInstagramSquare className = 'f'  style={{color: '(4, 172, 107, 0.705)'}}></FaInstagramSquare></a>
+                 <a href='https://facebook.com/neoteric.bd' target='_blank'><AiOutlineFacebook className = 'f' style={{color: 'blue'}}></AiOutlineFacebook></a>
+                 <a href='mailto:neoteric.bd@gmail.com' target='_blank'><AiOutlineMail className = 'f'  style={{color: 'hsla(2, 80%, 67%, 0.582)'}}></AiOutlineMail></a>
                  </div>
-
                  <div className = 'bx2'>
                  <h4>Newsletter</h4>
                  <p>Sign up for the latest news, offers and styles</p>
