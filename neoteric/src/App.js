@@ -18,7 +18,7 @@ import Alertt,{ShowAlert,HideAlert} from './component/sub-component/Alert';
 import Policies from './component/Policies';
 import Profile from './component/user/Profile';
 import View from './component/View';
-import posts from './files/post.json';
+import './loader.css';
 import Myaccount from './component/user/Myaccount';
 
 export const Click=(d)=>{
@@ -37,19 +37,31 @@ function App() {
   const [login,setStatus]=useState(null)
   const [uid,setUid]=useState(null)
   const [admin,setAdmin]=useState(null);
+  const [allpost,setAllpost]=useState(null);
   useEffect(() => {
     var db=firebaseApp.firestore();
+    var k=0;
+    var alll=[];
+    db.collection("post").orderBy("name","asc")
+    .get()
+    .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            alll[k]=doc.data();
+            k++;
+        });
+        setAllpost(alll);
+    });
     firebaseApp.auth().onAuthStateChanged((user) => {
       if (user) {
        setStatus('true');
        setUid(user.uid);
-       console.log(user.uid);
+       //console.log(user.uid);
        db.collection("user").where("id", "==", user.uid)
     .get()
     .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
           setUsers(doc.data());
-          console.log(doc.data())
+          //console.log(doc.data())
         });
     })
     .catch((error) => {
@@ -75,9 +87,11 @@ function App() {
             i++;
         });
         setAlluser(all);
-    })
+    });
+    
   }, []);
 
+  //console.log(allpost);
     return ( 
       <Router>
         <Link to='/profile' id='profile'>
@@ -153,13 +167,19 @@ function App() {
           </Route>
           <Route path='/'>
             <div className='body'>
-            <Home admin={admin} changePost={post=>setPost(post)}></Home>
+            {
+              allpost!=null?(
+                <Home admin={admin} changePost={post=>setPost(post)} allpost={allpost}></Home>
+              ):(
+                <div class="lds-dual-ring"></div>
+              )
+            }
             </div>
           </Route>
         </Switch>
 
 
-        <div className='foot'>
+        <div className='foot'> 
           <Footer></Footer>
         </div>
         {

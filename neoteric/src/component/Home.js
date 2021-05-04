@@ -9,14 +9,23 @@ function Home(props){
 
     const [recent,setRecent]=useState([]);
     const [top,setTop]=useState([]);
-    const [number,setNumber]=useState(0);
+    const [number,setNumber]=useState([]);
     const c=['r1','r2','s3','s4','p5'];
     //const [admin,setAdmin]=useState([]);
-   
     useEffect(()=>{
   
-        ShowLoader();
-        const db=firebaseApp.firestore();
+       // ShowLoader();
+       var a=props.allpost;
+       var b=props.allpost;
+       a.sort(function (x, y) {
+        return y.date-x.date;
+    });
+    b.sort(function (x, y) {
+        return y.view-x.view;
+    });
+    setRecent(a);
+    setTop(b);
+        /*const db=firebaseApp.firestore();
         
         var i=0,j=0;
         var a=[];
@@ -60,7 +69,8 @@ function Home(props){
             r=0;
         }
       }, 3000);
-    return () => clearInterval(interval);
+    return () => clearInterval(interval); */
+
     },[])
 
 
@@ -92,7 +102,7 @@ function Home(props){
                     recent!==null?(
                         <div className='bx22'>
                             {
-                                recent.map((d,i)=>(
+                                recent.slice(0,8).map((d,i)=>(
                                     <Card data={d} changePost={post=>setPost(post)}></Card>
                                 ))
                             }
@@ -110,7 +120,7 @@ function Home(props){
                     top!==null?(
                         <div className='bx22'>
                             {
-                                top.map((d,i)=>(
+                                top.slice(0,8).map((d,i)=>(
                                     <Card data={d} changePost={post=>setPost(post)}></Card>
                                 ))
                             }

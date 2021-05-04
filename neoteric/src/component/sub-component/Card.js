@@ -1,6 +1,7 @@
 import React from 'react'
 import './card.css'
 import firebaseApp from './../../firebase'
+import firebase from 'firebase'
 
 function Card(props) {
 
@@ -8,7 +9,7 @@ function Card(props) {
         //Click('view');
         props.changePost(props.data);
         const db=firebaseApp.firestore();
-        const v=firebaseApp.firestore.FieldValue.increment();
+        const v=firebase.firestore.FieldValue.increment(1);
         db.collection('post').doc(props.data.id).update({
             view: v
         })

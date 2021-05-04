@@ -1,28 +1,24 @@
 {
   "files": {
-    "main.css": "/static/css/main.79b19eb9.chunk.css",
-    "main.js": "/static/js/main.e4844095.chunk.js",
-    "main.js.map": "/static/js/main.e4844095.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.b08c0712.js",
-    "runtime-main.js.map": "/static/js/runtime-main.b08c0712.js.map",
-    "static/js/2.9bd5d00d.chunk.js": "/static/js/2.9bd5d00d.chunk.js",
-    "static/js/2.9bd5d00d.chunk.js.map": "/static/js/2.9bd5d00d.chunk.js.map",
-    "static/js/3.333a1b3b.chunk.js": "/static/js/3.333a1b3b.chunk.js",
-    "static/js/3.333a1b3b.chunk.js.map": "/static/js/3.333a1b3b.chunk.js.map",
+    "main.css": "/static/css/main.e8db3285.chunk.css",
+    "main.js": "/static/js/main.abdb53d0.chunk.js",
+    "main.js.map": "/static/js/main.abdb53d0.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.fb500803.js",
+    "runtime-main.js.map": "/static/js/runtime-main.fb500803.js.map",
+    "static/js/2.81da7fa8.chunk.js": "/static/js/2.81da7fa8.chunk.js",
+    "static/js/2.81da7fa8.chunk.js.map": "/static/js/2.81da7fa8.chunk.js.map",
+    "static/js/3.dd27f78a.chunk.js": "/static/js/3.dd27f78a.chunk.js",
+    "static/js/3.dd27f78a.chunk.js.map": "/static/js/3.dd27f78a.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.79b19eb9.chunk.css.map": "/static/css/main.79b19eb9.chunk.css.map",
-    "static/js/2.9bd5d00d.chunk.js.LICENSE.txt": "/static/js/2.9bd5d00d.chunk.js.LICENSE.txt",
+    "static/css/main.e8db3285.chunk.css.map": "/static/css/main.e8db3285.chunk.css.map",
+    "static/js/2.81da7fa8.chunk.js.LICENSE.txt": "/static/js/2.81da7fa8.chunk.js.LICENSE.txt",
     "static/media/afaga.1f4ae501.png": "/static/media/afaga.1f4ae501.png",
-    "static/media/ismart-shankar_156195627930.f1f6caf9.jpg": "/static/media/ismart-shankar_156195627930.f1f6caf9.jpg",
-    "static/media/logo.ba0c4d72.png": "/static/media/logo.ba0c4d72.png",
-    "static/media/printed-t-shirt-red-png-download-700700-free-transparent-red-t-shirt-png-900_700-removebg-preview.f8d1ba0b.png": "/static/media/printed-t-shirt-red-png-download-700700-free-transparent-red-t-shirt-png-900_700-removebg-preview.f8d1ba0b.png",
-    "static/media/shutterstock_1009843408.489dc2c1.jpg": "/static/media/shutterstock_1009843408.489dc2c1.jpg",
-    "static/media/shutterstock_554314555_copy.103b58ff.jpg": "/static/media/shutterstock_554314555_copy.103b58ff.jpg"
+    "static/media/logo.ba0c4d72.png": "/static/media/logo.ba0c4d72.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.b08c0712.js",
-    "static/js/2.9bd5d00d.chunk.js",
-    "static/css/main.79b19eb9.chunk.css",
-    "static/js/main.e4844095.chunk.js"
+    "static/js/runtime-main.fb500803.js",
+    "static/js/2.81da7fa8.chunk.js",
+    "static/css/main.e8db3285.chunk.css",
+    "static/js/main.abdb53d0.chunk.js"
   ]
 }
