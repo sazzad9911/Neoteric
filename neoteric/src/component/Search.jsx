@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import { FaSearch } from "react-icons/fa";
 import './search.css'
 
@@ -9,18 +9,42 @@ function Search(props){
         //document.getElementById('box').classList.add('s');
     }
     const Up=(e)=>{
-        setData(props.posts);
-        console.log(props.posts);
+        var val=e.target.value;
+        var all=[];
+        var n=0;
+        for(var i=0;i<props.posts.length;i++){
+            for(var j=0;j<val.length;j++){
+                for(var k=j;k<props.posts[i].name.length;k++){
+                    if(props.posts[i].name[j]===val[j]){
+                        all[n]=props.posts[i];
+                        n++;
+                    }else if(props.posts[i].name[k-1]===' '){
+                        if(props.posts[i].name[k]===val[j]){
+                            all[n]=props.posts[i];
+                            n++;
+                        }
+                    }
+                }
+            }
+        }
+        setData(all);
     }
+    useEffect(() => {
+        setData(props.posts);
+    }, [])
     return(
         <div className="search-box">
             <input type="text" placeholder="Search..." onFocus={Focus.bind(this,'visiable')} onKeyUp={e=>Up(e)}></input>
             <FaSearch className="search-btn"></FaSearch>
             <div className='search-box1' id={props.id}>
                 {
-                   data.map((d)=>(
-                    Nav(d)
-                ))
+                  data!=null?(
+                    data.map((d)=>(
+                        Nav(d)
+                    ))
+                  ):(
+                      <p>h</p>
+                  )
                 }
             </div>
         </div>

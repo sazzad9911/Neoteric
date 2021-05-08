@@ -69,6 +69,13 @@
 .se-bx {
     width: 100%;
     height: fit-content;
+    display: flex;
+    align-items: center;
+    margin: 1px 1px;
+}
+
+.se-bx:hover {
+    background: rgb(187, 185, 185);
 }
 
 .se-bx img {
