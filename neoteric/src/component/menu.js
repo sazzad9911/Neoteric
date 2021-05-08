@@ -15,7 +15,13 @@ const Policies=()=>{
 const Faq=()=>{
   Click('faq');
 }
+
 function Menu(props){
+
+  const Select=(d)=>{
+    props.setCollName(d);
+    //alert(d);
+  }
    function myFunction() {
         var x = document.getElementById("myTopnav");
         if (x.className === "topnav") {
@@ -31,13 +37,20 @@ function Menu(props){
     <button className="dropbtn">Collections 
       <AiFillCaretDown className='a'></AiFillCaretDown>
     </button>
-    <div className="dropdown-content">
-      <a>T Shirt</a>
-      <a>Polo</a>
-      <a>Hoodies</a>
-      <a>Basicx Full</a>
-      <a>Sleeves</a>
+    {
+      props.admin!=null?(
+        <div className="dropdown-content">
+      {
+        props.admin.collections.map((d)=>(
+          <a onClick={Select.bind(this,d)}>{d}</a>
+        ))
+      }
     </div>
+      ):
+      (
+        <a>T Shirt</a>
+      )
+    }
   </div> 
   <a id='policies' onClick={Policies}>Policies</a>
   <a id='faq' onClick={Faq}>FAQ</a>

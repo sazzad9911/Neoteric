@@ -6,6 +6,7 @@ import { AiOutlineMail} from 'react-icons/ai'
 import { FaCcVisa} from 'react-icons/fa'
 import { FaCcAmex} from 'react-icons/fa'
 import { FaCcMastercard} from 'react-icons/fa'
+import {Click} from './../App'
 
 
 function Footer() {
@@ -34,10 +35,10 @@ function Footer() {
                  </div>
                 <div className = 'bx2' id='foot'>
                <h4>Navigate</h4>
-               <a href='/'>Home</a><br></br><br></br>
-               <a href='/collections'>Collections</a><br></br><br></br>
-               <a href='/faq'>FAQ</a><br></br><br></br>
-               <a href='policies'>Policies</a>
+               <a onClick={Click.bind(this,'home')}>Home</a><br></br><br></br>
+               <a onClick={Click.bind(this,'collections')}>Collections</a><br></br><br></br>
+               <a onClick={Click.bind(this,'faq')}>FAQ</a><br></br><br></br>
+               <a onClick={Click.bind(this,'policies')}>Policies</a>
                 </div>
               
              </div>

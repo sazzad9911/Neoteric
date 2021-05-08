@@ -5,6 +5,7 @@ import img from './../files/t-shart.jpg'
 import {ShowLoader,HideLoader} from './sub-component/Loader'
 import {ShowAlert,HideAlert} from './sub-component/Alert'
 import firebaseApp from './../firebase'
+import SliderView from './sub-component/SliderView'
 
 const View=(props)=>{
     if(props.data===null){
@@ -82,7 +83,7 @@ const View=(props)=>{
         <div className='views'>
             <div className='full-view'>
             <div className='slide-view'>
-                <Slider img={d}></Slider>
+                <SliderView img={d}></SliderView>
             </div>
             </div>
             <div className='description-view'>

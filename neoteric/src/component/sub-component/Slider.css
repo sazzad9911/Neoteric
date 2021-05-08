@@ -71,3 +71,23 @@ input[name='r'] {
 #p5:checked~.s1 {
     margin-left: -80%;
 }
+
+#r11:checked~.s1 {
+    margin-left: 0;
+}
+
+#r22:checked~.s1 {
+    margin-left: -20%;
+}
+
+#s33:checked~.s1 {
+    margin-left: -40%;
+}
+
+#s44:checked~.s1 {
+    margin-left: -60%;
+}
+
+#p55:checked~.s1 {
+    margin-left: -80%;
+}

@@ -20,12 +20,10 @@ import Profile from './component/user/Profile';
 import View from './component/View';
 import './loader.css';
 import Myaccount from './component/user/Myaccount';
-
+import Faq from './component/Faq'
+import Collection from './component/Collection'
 export const Click=(d)=>{
   document.getElementById(d).click();
-}
-export const Refresh=()=>{
-
 }
 function App() {
   //const Refresh= new Refresh();
@@ -38,6 +36,7 @@ function App() {
   const [uid,setUid]=useState(null)
   const [admin,setAdmin]=useState(null);
   const [allpost,setAllpost]=useState(null);
+  const [collName,setCollName]=useState(null);
   useEffect(() => {
     var db=firebaseApp.firestore();
     var k=0;
@@ -102,22 +101,23 @@ function App() {
         <Link to='/faq' id='faq'></Link>
         <Link to='/' id='home'></Link>
         <Link to='/view' id='view'></Link>
+        <Link to='/collections' id='collections'></Link>
       <div className = "App" >
         <div className='head'>
          {
            users!=null?(
-            <Header data={users}></Header>
+            <Header data={users} admin={admin} setCollName={d=>setCollName(d)} posts={allpost}></Header>
            ):(
-            <Header data={users}></Header>
+            <Header data={users} admin={admin} setCollName={d=>setCollName(d)} posts={allpost}></Header>
            )
          }
         </div>
         <div className='head1' id='navbar'>
          {
            users!=null?(
-            <Header data={users}></Header>
+            <Header data={users} admin={admin} setCollName={d=>setCollName(d)} posts={allpost}></Header>
            ):(
-            <Header data={users}></Header>
+            <Header data={users} admin={admin} setCollName={d=>setCollName(d)} posts={allpost}></Header>
            )
          }
         </div>
@@ -135,12 +135,19 @@ function App() {
           </Route>
           <Route path='/faq'>
           <div className='body'>
-              
+              <Faq></Faq>
           </div>
           </Route>
           <Route path='/collections'>
             <div className='body'>
-
+              {
+                allpost!=null?(
+                  <Collection data={collName} posts={allpost} changePost={post=>setPost(post)} admin={admin}></Collection>
+                ):
+                (
+                  <div class="lds-dual-ring"></div>
+                )
+              }
             </div>
           </Route>
           <Route path='/profile'>
@@ -169,7 +176,7 @@ function App() {
             <div className='body'>
             {
               allpost!=null?(
-                <Home admin={admin} changePost={post=>setPost(post)} allpost={allpost}></Home>
+                <Home admin={admin} changePost={post=>setPost(post)} allpost={allpost} data={allpost}></Home>
               ):(
                 <div class="lds-dual-ring"></div>
               )
@@ -184,10 +191,10 @@ function App() {
         </div>
         {
           users!=null?(
-            <Navigation data={users} ></Navigation>
+            <Navigation data={users} setCollName={d=>setCollName(d)} admin={admin} posts={allpost}></Navigation>
           ):
           (
-            <Navigation data={users}></Navigation>
+            <Navigation data={users} setCollName={d=>setCollName(d)} admin={admin} posts={allpost}></Navigation>
           )
         }
       </div>

@@ -1,50 +1,55 @@
 import React,{useEffect,useState} from 'react'
 import './Home.css'
 import Card from './sub-component/Card'
-import Slider from './../component/sub-component/Slider'
+import Slider,{Clicked} from './../component/sub-component/Slider'
 import firebaseApp from './../firebase'
 import {ShowLoader,HideLoader} from './sub-component/Loader'
 import {Click} from './../App'
+import lg from './../files/t-shart.jpg'
 function Home(props){
-
-    const [recent,setRecent]=useState([]);
+    const va=[lg,'none',lg,'noe',lg]
     const [top,setTop]=useState([]);
+    const [recent,setRecent]=useState(null);
     const [number,setNumber]=useState([]);
-    const c=['r1','r2','s3','s4','p5'];
     //const [admin,setAdmin]=useState([]);
     useEffect(()=>{
-  
-       // ShowLoader();
-       var a=props.allpost;
-       var b=props.allpost;
-       a.sort(function (x, y) {
-        return y.date-x.date;
-    });
-    b.sort(function (x, y) {
-        return y.view-x.view;
-    });
-    setRecent(a);
-    setTop(b);
-        /*const db=firebaseApp.firestore();
+        //console.log(img)
         
-        var i=0,j=0;
+            //alert(props.auto);
+           
+       // ShowLoader();
+       const top=props.allpost;
+       var temp = [];
+  for (var i = 0; i < top.length; i++) {
+    for (var j = i; j < top.length; j++) {
+        if (top[j].view > top[i].view) {
+            temp=top[i];
+            top[i]=top[j];
+            top[j]=temp;
+          }
+    }
+  }
+  setTop(top);
+        const db=firebaseApp.firestore();
+        
+        var k=0;
         var a=[];
-        var b=[];
+        //var b=[];
         db.collection("post").orderBy('date','desc').limit(8)
            .get()
            .then((querySnapshot) => {
               querySnapshot.forEach((doc) => {
             //console.log(doc.id, " => ", doc.data());
-            a[i]=doc.data();
-            i++;
+            a[k]=doc.data();
+            k++;
         });
         setRecent(a);
       })
         .catch((error) => {
         console.log("Error getting documents: ", error);
-        HideLoader();
+       // HideLoader();
       });
-      db.collection("post").orderBy('view','desc').limit(8)
+     /* db.collection("post").orderBy('view','desc').limit(8)
            .get()
            .then((querySnapshot) => {
               querySnapshot.forEach((doc) => {
@@ -91,30 +96,11 @@ function Home(props){
             {
                 props.admin!==null?(
                     <div className='imgslide'>
-            <Slider img={props.admin.banner}></Slider>
+            <Slider img={props.admin.banner} auto='true'></Slider>
             </div>
                 ):
                 (<div></div>)
             }
-            <h4>Recent Product :</h4>
-            <div className='sliderr'>
-            {
-                    recent!==null?(
-                        <div className='bx22'>
-                            {
-                                recent.slice(0,8).map((d,i)=>(
-                                    <Card data={d} changePost={post=>setPost(post)}></Card>
-                                ))
-                            }
-                        </div>
-                    ):
-                    (
-                        <div className='bx22'>
-                            <h3>No document to view</h3>
-                        </div>
-                    )
-                }
-            </div>
             <h4>Top Product :</h4>
             {
                     top!==null?(
@@ -131,7 +117,26 @@ function Home(props){
                             <h3>No document to view</h3>
                         </div>
                     )
-                } 
+                }
+            <h4>Recent Product :</h4>
+            <div className='sliderr'>
+            {
+            recent!==null?(
+                <div className='bx22'>
+                    {
+                        recent.slice(0,8).map((d,i)=>(
+                            <Card data={d} changePost={post=>setPost(post)}></Card>
+                        ))
+                    }
+                </div>
+            ):
+            (
+                <div className='bx22'>
+                    <h3>No document to view</h3>
+                </div>
+            )
+        }
+            </div>     
         </div> 
     )
 }

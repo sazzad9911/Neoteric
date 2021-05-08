@@ -183,10 +183,13 @@ li:hover {
     display: block;
     color: white;
     margin: 8px 8px;
+    width: 100%;
 }
 
 .pro h4 {
     text-align: left;
+    letter-spacing: 1px;
+    font-weight: 500;
 }
 
 .pro h4:hover {
@@ -246,4 +249,16 @@ li:hover {
 
 #yy {
     display: none;
+}
+
+.ex {
+    width: 95%;
+    margin-left: 5%;
+    max-height: 40vh;
+    overflow-y: scroll;
+}
+
+.ex h4 {
+    font-weight: 400;
+    letter-spacing: 1px;
 }
