@@ -7,7 +7,7 @@ import {ShowLoader,HideLoader} from './sub-component/Loader'
 import {Click} from './../App'
 import lg from './../files/t-shart.jpg'
 function Home(props){
-    const va=[lg,'none',lg,'noe',lg]
+    const va=[props.banner.b1,props.banner.b2,props.banner.b3,props.banner.b4,props.banner.b5];
     const [top,setTop]=useState([]);
     const [recent,setRecent]=useState(null);
     const [number,setNumber]=useState([]);
@@ -96,7 +96,7 @@ function Home(props){
             {
                 props.admin!==null?(
                     <div className='imgslide'>
-            <Slider img={props.admin.banner} auto='true'></Slider>
+            <Slider img={va} auto='true'></Slider>
             </div>
                 ):
                 (<div></div>)

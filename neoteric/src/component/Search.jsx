@@ -2,48 +2,42 @@ import React,{useState,useEffect} from 'react'
 import { FaSearch } from "react-icons/fa";
 import './search.css'
 
+
+
 function Search(props){
     const [data,setData]=useState(null);
     const Focus=(p)=>{
-        document.getElementById(props.id).style.display='flex';
+        document.getElementById(props.id).style.display=p;
         //document.getElementById('box').classList.add('s');
     }
+    const Click=(d)=>{
+        Focus('none');
+        props.changePost(d);
+    }
     const Up=(e)=>{
-        var val=e.target.value;
-        var all=[];
+        let val=e.target.value;
+        let all=[];
         var n=0;
-        for(var i=0;i<props.posts.length;i++){
-            for(var j=0;j<val.length;j++){
-                for(var k=j;k<props.posts[i].name.length;k++){
-                    if(props.posts[i].name[j]===val[j]){
-                        all[n]=props.posts[i];
-                        n++;
-                    }else if(props.posts[i].name[k-1]===' '){
-                        if(props.posts[i].name[k]===val[j]){
-                            all[n]=props.posts[i];
-                            n++;
-                        }
-                    }
-                }
-            }
+        if(props.posts){
+            all=props.posts.filter((data)=>{
+                return data.name.toLocaleLowerCase().startsWith(val.toLocaleLowerCase());
+            })
         }
         setData(all);
     }
-    useEffect(() => {
-        setData(props.posts);
-    }, [])
+    
     return(
-        <div className="search-box">
-            <input type="text" placeholder="Search..." onFocus={Focus.bind(this,'visiable')} onKeyUp={e=>Up(e)}></input>
+        <div className="search-box" onMouseLeave={Focus.bind(this,'none')}>
+            <input type="text" placeholder="Search..." onMouseOver={Focus.bind(this,'flex')} onKeyUp={e=>Up(e)} ></input>
             <FaSearch className="search-btn"></FaSearch>
             <div className='search-box1' id={props.id}>
                 {
                   data!=null?(
                     data.map((d)=>(
-                        Nav(d)
+                        <Nav data={d} Click={d=>Click(d)}></Nav>
                     ))
                   ):(
-                      <p>h</p>
+                      <p></p>
                   )
                 }
             </div>
@@ -55,9 +49,9 @@ export default Search;
 function Nav(props){
 
     return(
-        <div className='se-bx'>
-            <img src={props.img} alt={props.name}></img>
-            <p>{props.name}</p>
+        <div className='se-bx' onClick={props.Click.bind(this,props.data)}>
+            <img src={props.data.img} alt={props.data.name}></img>
+            <p>{props.data.name}</p>
         </div>
     )
 }

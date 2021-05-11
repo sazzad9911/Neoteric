@@ -37,10 +37,14 @@ function App() {
   const [admin,setAdmin]=useState(null);
   const [allpost,setAllpost]=useState(null);
   const [collName,setCollName]=useState(null);
+  const [banner,setBanner]=useState(null);
   useEffect(() => {
     var db=firebaseApp.firestore();
     var k=0;
     var alll=[];
+    db.collection('admin').doc('banner').get().then((doc)=>{
+      setBanner(doc.data());
+    });
     db.collection("post").orderBy("name","asc")
     .get()
     .then((querySnapshot) => {
@@ -75,7 +79,8 @@ function App() {
     db.collection('admin').doc('management').get().then((doc)=>{
       setAdmin(doc.data());
       //console.log(doc.data());
-    })
+    });
+    
     var all=[];
     var i=0;
     db.collection("user").orderBy("name","asc")
@@ -103,21 +108,15 @@ function App() {
         <Link to='/view' id='view'></Link>
         <Link to='/collections' id='collections'></Link>
       <div className = "App" >
-        <div className='head'>
-         {
-           users!=null?(
-            <Header data={users} admin={admin} setCollName={d=>setCollName(d)} posts={allpost}></Header>
-           ):(
-            <Header data={users} admin={admin} setCollName={d=>setCollName(d)} posts={allpost}></Header>
-           )
-         }
+        <div className='head'> 
+         
         </div>
         <div className='head1' id='navbar'>
          {
            users!=null?(
-            <Header data={users} admin={admin} setCollName={d=>setCollName(d)} posts={allpost}></Header>
+            <Header data={users} admin={admin} setCollName={d=>setCollName(d)} posts={allpost} changePost={post=>setPost(post)}></Header>
            ):(
-            <Header data={users} admin={admin} setCollName={d=>setCollName(d)} posts={allpost}></Header>
+            <Header data={users} admin={admin} setCollName={d=>setCollName(d)} posts={allpost} changePost={post=>setPost(post)}></Header>
            )
          }
         </div>
@@ -159,24 +158,24 @@ function App() {
             <div className='body'>
               {
                 users!=null?(
-                  <Myaccount user={users}></Myaccount>
+                  <Myaccount user={users} admin={admin} posts={allpost}></Myaccount>
                 ):
                 (
                   <Login></Login>
                 )
               }
-            </div>
+            </div> 
           </Route>
           <Route path='/view'>
             <div className='body'>
-            <View data={post} users={alluser}></View>
+            <View data={post} users={alluser} user={users}></View>
             </div>
           </Route>
           <Route path='/'>
             <div className='body'>
             {
-              allpost!=null?(
-                <Home admin={admin} changePost={post=>setPost(post)} allpost={allpost} data={allpost}></Home>
+              allpost!=null && admin!=null?(
+                <Home admin={admin} changePost={post=>setPost(post)} allpost={allpost} data={allpost} banner={banner}></Home>
               ):(
                 <div class="lds-dual-ring"></div>
               )
@@ -191,10 +190,10 @@ function App() {
         </div>
         {
           users!=null?(
-            <Navigation data={users} setCollName={d=>setCollName(d)} admin={admin} posts={allpost}></Navigation>
+            <Navigation data={users} setCollName={d=>setCollName(d)} admin={admin} posts={allpost} changePost={post=>setPost(post)}></Navigation>
           ):
           (
-            <Navigation data={users} setCollName={d=>setCollName(d)} admin={admin} posts={allpost}></Navigation>
+            <Navigation data={users} setCollName={d=>setCollName(d)} admin={admin} posts={allpost} changePost={post=>setPost(post)}></Navigation>
           )
         }
       </div>

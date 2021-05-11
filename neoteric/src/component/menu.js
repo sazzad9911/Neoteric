@@ -48,7 +48,9 @@ function Menu(props){
     </div>
       ):
       (
-        <a>T Shirt</a>
+        <div className='dropdown-content'>
+          <a>T Shirt</a>
+        </div>
       )
     }
   </div> 

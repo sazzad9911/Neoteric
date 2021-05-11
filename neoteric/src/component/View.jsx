@@ -6,7 +6,8 @@ import {ShowLoader,HideLoader} from './sub-component/Loader'
 import {ShowAlert,HideAlert} from './sub-component/Alert'
 import firebaseApp from './../firebase'
 import SliderView from './sub-component/SliderView'
-
+import { uuid } from 'uuidv4';
+import emailjs from 'emailjs-com';
 const View=(props)=>{
     if(props.data===null){
         window.location.replace('/');
@@ -51,21 +52,34 @@ const View=(props)=>{
         }
         setColor(p);
     }
-    const AddCart=()=>{
-        if(quantity===0){
-            ShowAlert('Wrong!','Enter valid quantity.');
-            return;
-        }
-        if(color===null){
-            ShowAlert('Wrong!','Please select color.');
-            return;
-        }
-        if(size===null){
-            ShowAlert('Wrong!','Please select your size');
-            return;
+    const SendMessage=(d)=>{
+        let db=firebaseApp.firestore();
+        db.collection('user').doc(props.data.uid).collection('messages').doc().set({
+            message: d,
+            date: new Date()
+        });
+        for(var i=0;i<props.users.length;i++){
+            if(props.users[i].id===props.data.uid){
+                //alert(props.users[i].email);
+                emailjs.send("service_c7wsty3","template_rjwmd5f",{
+                    from_name: props.user.name,
+                    to_name: props.users[i].name,
+                    message: d,
+                    reply_to: props.users[i].email,
+                },"user_luYgwKeL3OlnAERBaVnBL").then((response)=>{
+                    console.log('success');
+                },(error)=>{
+                    console.log(error);
+                });
+            }
         }
     }
-    const BuyNow=()=>{
+    
+    const AddCart=()=>{
+        if(props.user==null){
+            ShowAlert('Opps!','You have to create an account first.');
+            return;
+        }
         if(quantity===0){
             ShowAlert('Wrong!','Enter valid quantity.');
             return;
@@ -78,12 +92,62 @@ const View=(props)=>{
             ShowAlert('Wrong!','Please select your size');
             return;
         }
+        ShowLoader();
+        let db=firebaseApp.firestore();
+       db.collection('user').doc(props.user.id).collection('cart').doc(props.data.id).set({
+           id:props.data.id,
+           name: props.data.name,
+           prize: props.data.prize,
+           quantity: quantity,
+           color: color,
+           size: size
+       }).then(()=>{
+           HideLoader();
+           ShowAlert('Successfull!','Product added into cart.');
+           
+       })
+    }
+    const BuyNow=()=>{
+        
+        if(props.user==null){
+            ShowAlert('Opps!','You have to create an account first.');
+            return;
+        }
+        if(quantity===0){
+            ShowAlert('Wrong!','Enter valid quantity.');
+            return;
+        }
+        if(color===null){
+            ShowAlert('Wrong!','Please select color.');
+            return;
+        }
+        if(size===null){
+            ShowAlert('Wrong!','Please select your size');
+            return;
+        }
+        ShowLoader();
+        let db=firebaseApp.firestore();
+        let id=uuid();
+        db.collection('user').doc(props.user.id).collection('buy').doc(id).set({
+           id:id,
+           productId: props.data.id,
+           name: props.data.name,
+           prize: props.data.prize,
+           quantity: quantity,
+           color: color,
+           size: size
+       }).then(()=>{
+        SendMessage('New order post, Product Name: '+props.data.name+' Prize: '+props.data.prize+' ProductId: '+props.data.id+' Quantity: '+quantity+' Color: '+color+' Size: '+size+' Order by: '+props.user.name+' Phone: '+props.user.phone+' Email: '+props.user.email);
+           HideLoader();
+           ShowAlert('Successfull!','We will contact with you after few hours.');
+
+       })
     }
     return(
         <div className='views'>
             <div className='full-view'>
             <div className='slide-view'>
-                <SliderView img={d}></SliderView>
+                <SliderView img={props.data.images}></SliderView>
             </div>
             </div>
             <div className='description-view'>
@@ -127,7 +191,7 @@ const View=(props)=>{
                 </div>
                 {
                     props.users.map((d,i)=>{
-                        if(d.email===props.data.email){
+                        if(d.id===props.data.uid){
                             return(
                                 <div>
                                   <div className='full-view'>

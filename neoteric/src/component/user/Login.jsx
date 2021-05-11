@@ -91,7 +91,8 @@ const Login=()=>{
              phone: "update now",
              email: email,
              id: uid,
-             admin: false
+             admin: false,
+             message: 0
           })
           .then(() => {
             console.log("Document successfully written!");

@@ -50,3 +50,12 @@
 #simple-menu {
     z-index: 800000;
 }
+
+@media (max-width:800px) {
+    .profile {
+        margin-top: 0;
+    }
+    .loginbar {
+        margin-top: 0;
+    }
+}

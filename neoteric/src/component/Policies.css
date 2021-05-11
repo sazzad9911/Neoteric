@@ -1,5 +1,5 @@
 .policies {
-    width: 100%;
+    width: 80%;
     min-height: 70vh;
     padding: 5px 5px;
 }
@@ -52,13 +52,14 @@
 }
 
 .faq {
-    width: 100%;
+    width: 80%;
     min-height: 70vh;
 }
 
 .faq h4 {
-    text-align: center;
+    text-align: left;
     font-size: 18px;
+    margin-left: 10px;
 }
 
 .faq p {
@@ -66,7 +67,8 @@
     letter-spacing: 1px;
     font-size: 15px;
     font-weight: 350;
-    text-align: center;
+    text-align: left;
+    margin-bottom: 30px;
 }
 
 .faq b {

@@ -40,6 +40,11 @@ function Navigation(props){
         Click('collections');
         Toggle('mobile-menu',0);
     }
+    const HandleClick=(d)=>{
+        props.changePost(d);
+        Click('view');
+        Toggle('mobile-menu',0);
+    }
   return(
     <div className="mobile-menu" id="mobile-menu">
     <OutsideClickHandler
@@ -48,12 +53,18 @@ function Navigation(props){
      }}>
          <div className="mobile-menu1">
         <AiOutlineClose className="menu-bar" style={{margin: "5px 5px"}} onClick={Toggle.bind(this,"mobile-menu",0)}></AiOutlineClose>
-        <Search id='box' posts={props.posts}></Search>
+        {
+            props.posts!=null?(
+                <Search id='box' posts={props.posts} changePost={d=>HandleClick(d)}></Search>
+            ):(
+                <div></div>
+            )
+        }
             
             <div className="pro" style={{marginTop:"8px", display:"block"}}>
                 <h4 onClick={Home}>Home</h4>
                 <h4 onClick={All.bind(this,'collections')}>Collections</h4>
-                <div className='ex'>
+                <div className='ex'> 
                     {
                         props.admin!=null?(
                             props.admin.collections.map((d)=>(
